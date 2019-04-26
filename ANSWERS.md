@@ -21,5 +21,5 @@ standard Unix system. Briefly explain what each of these states means.**
 non-compiled language? More specifically, what benefits are there to be had from
 taking the extra time to compile our code?**
 
--   It doesnt need anything to help it run, it can run on its' own. It usually
-    runs faster as there is less obfuscation.
+-   It doesn't need anything to help it run, it can run on it's own. It usually
+    runs faster as there are no middle men between it and the OS.
