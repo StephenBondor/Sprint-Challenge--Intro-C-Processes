@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 	// Declarations
 	struct dirent *ent;
 	long long int size;
-	char* name;
+	char* filepath;
 
 	// Parse command line
 	if (argc != 2)
@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 		printf("There are %d command line argument(s). Ya need 2, ya goof- $ ./lsls <path>\n", argc);
 		exit(1);
 	} 
-	if (strcmp(argv[1]+strlen(argv[1])-1, "/") != 0)
+	if (strcmp(argv[1]+strlen(argv[1])-1, "/") != 0) // User forgot to add a "/" ? Do it for them.
 	{
 		argv[1] = Concat(argv[1], "/");
 	}
@@ -85,8 +85,8 @@ int main(int argc, char **argv)
 	while (ent != NULL)
 	{
 		// Get the size
-		name = Concat(argv[1], ent->d_name);
-		size = GetSize(name);
+		filepath = Concat(argv[1], ent->d_name);
+		size = GetSize(filepath);
 
 		// Conditional rendering
 		if (size == -5)  // The error of all errors
@@ -112,7 +112,7 @@ int main(int argc, char **argv)
 
 	// Finish executing
 	closedir(d);
-	free(name);
+	free(filepath);
 
 	return 0;
 }
